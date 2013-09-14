@@ -2,11 +2,9 @@
 
 This is a Puppet module for cntlm based on the second generation layout ("NextGen") of Example42 Puppet Modules.
 
-Made by Alessandro Franceschi / Lab42
+Made by Guillaume Lederrey
 
-Official site: http://www.example42.com
-
-Official git repository: http://github.com/example42/puppet-cntlm
+Official git repository: http://github.com/gehel/puppet-cntlm
 
 Released under the terms of Apache 2 License.
 
