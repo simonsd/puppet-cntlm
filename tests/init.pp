@@ -1,1 +1,4 @@
-include cntlm
+# Default class installation
+#
+class { 'cntlm':
+}

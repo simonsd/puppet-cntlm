@@ -1,1 +1,9 @@
-metadata.json
+/.gradle
+/metadata.json
+/.rvmrc
+build
+pkg/
+Session.vim
+spec/fixtures
+.*.sw[a-z]
+*.un~
