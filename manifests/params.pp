@@ -21,7 +21,7 @@ class cntlm::params {
   }
 
   $service = $::operatingsystem ? {
-    default => 'cntlmd',
+    default => 'cntlm',
   }
 
   $service_status = $::operatingsystem ? {
