@@ -105,3 +105,7 @@ For detailed info about the logic and usage patterns of Example42 modules check 
 ## CONTINUOUS TESTING
 
 [![Build Status](https://travis-ci.org/gehel/puppet-cntlm.png?branch=master)](https://travis-ci.org/gehel/puppet-cntlm)
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gehel/puppet-cntlm/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
