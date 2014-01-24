@@ -7,7 +7,18 @@
 
 Username        <%= @username %>
 Domain          <%= @domain %>
-Password        <%= @password %>                # Use hashes instead (-H)
+<% if @password -%>
+Password        <%= @password %>
+<% end -%>
+<% if @passLM -%>
+PassLM    <%= @passLM %>
+<% end -%>
+<% if @passNT -%>
+PassNT    <%= @passNT %>
+<% end -%>
+<% if @passNTLMv2 -%>
+PassNTLMv2 <%= @passNTLMv2 %>
+<% end -%>
 <% if @workstation -%>
 Workstation    <%= @workstation %>
 <% end -%>

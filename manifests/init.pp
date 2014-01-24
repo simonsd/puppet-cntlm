@@ -184,64 +184,65 @@
 # See README for usage patterns.
 #
 class cntlm (
-  $my_class            = params_lookup( 'my_class' ),
-  $source              = params_lookup( 'source' ),
-  $template            = params_lookup( 'template' ),
-  $service_autorestart = params_lookup( 'service_autorestart' , 'global' ),
-  $options             = params_lookup( 'options' ),
-  $version             = params_lookup( 'version' ),
-  $absent              = params_lookup( 'absent' ),
-  $disable             = params_lookup( 'disable' ),
-  $disableboot         = params_lookup( 'disableboot' ),
-  $monitor             = params_lookup( 'monitor' , 'global' ),
-  $monitor_tool        = params_lookup( 'monitor_tool' , 'global' ),
-  $monitor_target      = params_lookup( 'monitor_target' , 'global' ),
-  $puppi               = params_lookup( 'puppi' , 'global' ),
-  $puppi_helper        = params_lookup( 'puppi_helper' , 'global' ),
-  $firewall            = params_lookup( 'firewall' , 'global' ),
-  $firewall_tool       = params_lookup( 'firewall_tool' , 'global' ),
-  $firewall_src        = params_lookup( 'firewall_src' , 'global' ),
-  $firewall_dst        = params_lookup( 'firewall_dst' , 'global' ),
-  $debug               = params_lookup( 'debug' , 'global' ),
-  $audit_only          = params_lookup( 'audit_only' , 'global' ),
-  $noops               = params_lookup( 'noops' ),
-  $package             = params_lookup( 'package' ),
-  $service             = params_lookup( 'service' ),
-  $service_status      = params_lookup( 'service_status' ),
-  $process             = params_lookup( 'process' ),
-  $process_args        = params_lookup( 'process_args' ),
-  $process_user        = params_lookup( 'process_user' ),
-  $config_file         = params_lookup( 'config_file' ),
-  $config_file_mode    = params_lookup( 'config_file_mode' ),
-  $config_file_owner   = params_lookup( 'config_file_owner' ),
-  $config_file_group   = params_lookup( 'config_file_group' ),
-  $config_file_init    = params_lookup( 'config_file_init' ),
-  $pid_file            = params_lookup( 'pid_file' ),
-  $log_dir             = params_lookup( 'log_dir' ),
-  $log_file            = params_lookup( 'log_file' ),
-  $port                = params_lookup( 'port' ),
-  $protocol            = params_lookup( 'protocol' ),
-  $username            = params_lookup( 'username' ),
-  $domain              = params_lookup( 'domain' ),
-  $password            = params_lookup( 'password' ),
-  $workstation         = params_lookup( 'workstation' ),
-  $socks5proxy         = params_lookup( 'socks5proxy' ),
-  $socks5user          = params_lookup( 'socks5user' ),
-  $proxies             = params_lookup( 'proxies' ),
-  ) inherits cntlm::params {
+  $my_class            = params_lookup('my_class'),
+  $source              = params_lookup('source'),
+  $template            = params_lookup('template'),
+  $service_autorestart = params_lookup('service_autorestart', 'global'),
+  $options             = params_lookup('options'),
+  $version             = params_lookup('version'),
+  $absent              = params_lookup('absent'),
+  $disable             = params_lookup('disable'),
+  $disableboot         = params_lookup('disableboot'),
+  $monitor             = params_lookup('monitor', 'global'),
+  $monitor_tool        = params_lookup('monitor_tool', 'global'),
+  $monitor_target      = params_lookup('monitor_target', 'global'),
+  $puppi               = params_lookup('puppi', 'global'),
+  $puppi_helper        = params_lookup('puppi_helper', 'global'),
+  $firewall            = params_lookup('firewall', 'global'),
+  $firewall_tool       = params_lookup('firewall_tool', 'global'),
+  $firewall_src        = params_lookup('firewall_src', 'global'),
+  $firewall_dst        = params_lookup('firewall_dst', 'global'),
+  $debug               = params_lookup('debug', 'global'),
+  $audit_only          = params_lookup('audit_only', 'global'),
+  $noops               = params_lookup('noops'),
+  $package             = params_lookup('package'),
+  $service             = params_lookup('service'),
+  $service_status      = params_lookup('service_status'),
+  $process             = params_lookup('process'),
+  $process_args        = params_lookup('process_args'),
+  $process_user        = params_lookup('process_user'),
+  $config_file         = params_lookup('config_file'),
+  $config_file_mode    = params_lookup('config_file_mode'),
+  $config_file_owner   = params_lookup('config_file_owner'),
+  $config_file_group   = params_lookup('config_file_group'),
+  $config_file_init    = params_lookup('config_file_init'),
+  $pid_file            = params_lookup('pid_file'),
+  $log_dir             = params_lookup('log_dir'),
+  $log_file            = params_lookup('log_file'),
+  $port                = params_lookup('port'),
+  $protocol            = params_lookup('protocol'),
+  $username            = params_lookup('username'),
+  $domain              = params_lookup('domain'),
+  $password            = params_lookup('password'),
+  $passLM              = params_lookup('passLM'),
+  $passNT              = params_lookup('passNT'),
+  $passNTLMv2          = params_lookup('passNTLMv2'),
+  $workstation         = params_lookup('workstation'),
+  $socks5proxy         = params_lookup('socks5proxy'),
+  $socks5user          = params_lookup('socks5user'),
+  $proxies             = params_lookup('proxies'),) inherits cntlm::params {
+  $bool_service_autorestart = any2bool($service_autorestart)
+  $bool_absent = any2bool($absent)
+  $bool_disable = any2bool($disable)
+  $bool_disableboot = any2bool($disableboot)
+  $bool_monitor = any2bool($monitor)
+  $bool_puppi = any2bool($puppi)
+  $bool_firewall = any2bool($firewall)
+  $bool_debug = any2bool($debug)
+  $bool_audit_only = any2bool($audit_only)
+  $bool_noops = any2bool($noops)
 
-  $bool_service_autorestart=any2bool($service_autorestart)
-  $bool_absent=any2bool($absent)
-  $bool_disable=any2bool($disable)
-  $bool_disableboot=any2bool($disableboot)
-  $bool_monitor=any2bool($monitor)
-  $bool_puppi=any2bool($puppi)
-  $bool_firewall=any2bool($firewall)
-  $bool_debug=any2bool($debug)
-  $bool_audit_only=any2bool($audit_only)
-  $bool_noops=any2bool($noops)
-
-  ### Definition of some variables used in the module
+  # ## Definition of some variables used in the module
   $manage_package = $cntlm::bool_absent ? {
     true  => 'absent',
     false => $cntlm::version,
@@ -260,15 +261,15 @@ class cntlm (
 
   $manage_service_ensure = $cntlm::bool_disable ? {
     true    => 'stopped',
-    default =>  $cntlm::bool_absent ? {
+    default => $cntlm::bool_absent ? {
       true    => 'stopped',
       default => 'running',
     },
   }
 
   $manage_service_autorestart = $cntlm::bool_service_autorestart ? {
-    true    => Service[cntlm],
-    false   => undef,
+    true  => Service[cntlm],
+    false => undef,
   }
 
   $manage_file = $cntlm::bool_absent ? {
@@ -276,16 +277,13 @@ class cntlm (
     default => 'present',
   }
 
-  if $cntlm::bool_absent == true
-  or $cntlm::bool_disable == true
-  or $cntlm::bool_disableboot == true {
+  if $cntlm::bool_absent == true or $cntlm::bool_disable == true or $cntlm::bool_disableboot == true {
     $manage_monitor = false
   } else {
     $manage_monitor = true
   }
 
-  if $cntlm::bool_absent == true
-  or $cntlm::bool_disable == true {
+  if $cntlm::bool_absent == true or $cntlm::bool_disable == true {
     $manage_firewall = false
   } else {
     $manage_firewall = true
@@ -302,29 +300,29 @@ class cntlm (
   }
 
   $manage_file_source = $cntlm::source ? {
-    ''        => undef,
-    default   => $cntlm::source,
+    ''      => undef,
+    default => $cntlm::source,
   }
 
   $manage_file_content = $cntlm::template ? {
-    ''        => undef,
-    default   => template($cntlm::template),
+    ''      => undef,
+    default => template($cntlm::template),
   }
 
-  ### Managed resources
+  # ## Managed resources
   package { $cntlm::package:
-    ensure  => $cntlm::manage_package,
-    noop    => $cntlm::bool_noops,
+    ensure => $cntlm::manage_package,
+    noop   => $cntlm::bool_noops,
   }
 
   service { 'cntlm':
-    ensure     => $cntlm::manage_service_ensure,
-    name       => $cntlm::service,
-    enable     => $cntlm::manage_service_enable,
-    hasstatus  => $cntlm::service_status,
-    pattern    => $cntlm::process,
-    require    => Package[$cntlm::package],
-    noop       => $cntlm::bool_noops,
+    ensure    => $cntlm::manage_service_ensure,
+    name      => $cntlm::service,
+    enable    => $cntlm::manage_service_enable,
+    hasstatus => $cntlm::service_status,
+    pattern   => $cntlm::process,
+    require   => Package[$cntlm::package],
+    noop      => $cntlm::bool_noops,
   }
 
   file { 'cntlm.conf':
@@ -342,16 +340,15 @@ class cntlm (
     noop    => $cntlm::bool_noops,
   }
 
-
-  ### Include custom class if $my_class is set
+  # ## Include custom class if $my_class is set
   if $cntlm::my_class {
     include $cntlm::my_class
   }
 
-
-  ### Provide puppi data, if enabled ( puppi => true )
+  # ## Provide puppi data, if enabled ( puppi => true )
   if $cntlm::bool_puppi == true {
-    $classvars=get_class_args()
+    $classvars = get_class_args()
+
     puppi::ze { 'cntlm':
       ensure    => $cntlm::manage_file,
       variables => $classvars,
@@ -360,8 +357,7 @@ class cntlm (
     }
   }
 
-
-  ### Service monitoring, if enabled ( monitor => true )
+  # ## Service monitoring, if enabled ( monitor => true )
   if $cntlm::bool_monitor == true {
     if $cntlm::port != '' {
       monitor::port { "cntlm_${cntlm::protocol}_${cntlm::port}":
@@ -373,6 +369,7 @@ class cntlm (
         noop     => $cntlm::bool_noops,
       }
     }
+
     if $cntlm::service != '' {
       monitor::process { 'cntlm_process':
         process  => $cntlm::process,
@@ -387,8 +384,7 @@ class cntlm (
     }
   }
 
-
-  ### Firewall management, if enabled ( firewall => true )
+  # ## Firewall management, if enabled ( firewall => true )
   if $cntlm::bool_firewall == true and $cntlm::port != '' {
     firewall { "cntlm_${cntlm::protocol}_${cntlm::port}":
       source      => $cntlm::firewall_src,
@@ -403,8 +399,7 @@ class cntlm (
     }
   }
 
-
-  ### Debugging, if enabled ( debug => true )
+  # ## Debugging, if enabled ( debug => true )
   if $cntlm::bool_debug == true {
     file { 'debug_cntlm':
       ensure  => $cntlm::manage_file,
@@ -412,7 +407,8 @@ class cntlm (
       mode    => '0640',
       owner   => 'root',
       group   => 'root',
-      content => inline_template('<%= scope.to_hash.reject { |k,v| k.to_s =~ /(uptime.*|path|timestamp|free|.*password.*|.*psk.*|.*key)/ }.to_yaml %>'),
+      content => inline_template('<%= scope.to_hash.reject { |k,v| k.to_s =~ /(uptime.*|path|timestamp|free|.*password.*|.*psk.*|.*key)/ }.to_yaml %>'
+      ),
       noop    => $cntlm::bool_noops,
     }
   }

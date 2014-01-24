@@ -13,8 +13,7 @@
 # It may be imported or inherited by other classes
 #
 class cntlm::params {
-
-  ### Application related parameters
+  # ## Application related parameters
 
   $package = $::operatingsystem ? {
     default => 'cntlm',
@@ -77,13 +76,17 @@ class cntlm::params {
   $port = '3128'
   $protocol = 'tcp'
 
-  $username    = 'testuser'
-  $domain      = 'corp-uk'
-  $password    = 'password'
+  $username = 'testuser'
+  $domain = 'corp-uk'
+  $password = undef
+  $passLM = undef
+  $passNT = undef
+  $passNTLMv2 = undef
+
   $workstation = undef
   $socks5proxy = undef
-  $socks5user  = undef
-  $proxies     = []
+  $socks5user = undef
+  $proxies = []
 
   # General Settings
   $my_class = ''
@@ -96,7 +99,7 @@ class cntlm::params {
   $disable = false
   $disableboot = false
 
-  ### General module variables that can have a site or per module default
+  # ## General module variables that can have a site or per module default
   $monitor = false
   $monitor_tool = ''
   $monitor_target = $::ipaddress
