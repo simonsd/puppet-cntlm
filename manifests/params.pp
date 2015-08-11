@@ -75,6 +75,7 @@ class cntlm::params {
 
   $port = '3128'
   $protocol = 'tcp'
+  $auth     = 'NTLMv2'
 
   $username = 'testuser'
   $domain = 'corp-uk'

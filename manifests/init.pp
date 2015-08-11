@@ -178,6 +178,9 @@
 #   This is used by monitor, firewall and puppi (optional) components
 #   Can be defined also by the (top scope) variable $cntlm_protocol
 #
+# [*auth*]
+#   Specify which auth method to use, defaults to NTLMv2
+#
 # [*proxies*]
 #   Upstream proxies.
 #
@@ -221,6 +224,7 @@ class cntlm (
   $log_file            = $::cntlm::params::log_file,
   $port                = $::cntlm::params::port,
   $protocol            = $::cntlm::params::protocol,
+  $auth                = $::cntlm::params::auth,
   $username            = $::cntlm::params::username,
   $domain              = $::cntlm::params::domain,
   $password            = $::cntlm::params::password,
