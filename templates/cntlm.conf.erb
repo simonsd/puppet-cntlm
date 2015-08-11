@@ -12,16 +12,16 @@ Auth            <%= @auth %>
 Password        <%= @password %>
 <% end -%>
 <% if @passLM -%>
-PassLM    <%= @passLM %>
+PassLM          <%= @passLM %>
 <% end -%>
 <% if @passNT -%>
-PassNT    <%= @passNT %>
+PassNT          <%= @passNT %>
 <% end -%>
 <% if @passNTLMv2 -%>
-PassNTLMv2 <%= @passNTLMv2 %>
+PassNTLMv2      <%= @passNTLMv2 %>
 <% end -%>
 <% if @workstation -%>
-Workstation    <%= @workstation %>
+Workstation     <%= @workstation %>
 <% end -%>
 
 <% @proxies.each do |proxy| -%>
@@ -44,10 +44,10 @@ Listen          <%= @port %>
 # can be used repeatedly for a whole bunch of individual accounts.
 #
 <% if @socks5proxy -%>
-SOCKS5Proxy    <%= @socks5proxy %>
+SOCKS5Proxy     <%= @socks5proxy %>
 <% end -%>
 <% if @socks5user -%>
-SOCKS5User    <%= @socks5user %>
+SOCKS5User      <%= @socks5user %>
 <% end -%>
 
 #
