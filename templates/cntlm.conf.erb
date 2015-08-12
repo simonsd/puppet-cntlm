@@ -27,6 +27,7 @@ Workstation     <%= @workstation %>
 <% @proxies.each do |proxy| -%>
 Proxy           <%= proxy %>
 <% end -%>
+NoProxy         <%= @noproxy.join(', ') %>
 
 #
 # This is the port number where Cntlm will listen

@@ -184,6 +184,9 @@
 # [*proxies*]
 #   Upstream proxies.
 #
+# [*noproxy*]
+#   Array of IP-addresses and hostnames that should not be proxied
+#
 # See README for usage patterns.
 #
 class cntlm (
@@ -235,6 +238,7 @@ class cntlm (
   $socks5proxy         = $::cntlm::params::socks5proxy,
   $socks5user          = $::cntlm::params::socks5user,
   $proxies             = $::cntlm::params::proxies,
+  $noproxy             = $::cntlm::params::noproxy,
 ) inherits ::cntlm::params {
   $bool_service_autorestart = str2bool($service_autorestart)
   $bool_absent = str2bool($absent)

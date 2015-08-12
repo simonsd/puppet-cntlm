@@ -88,6 +88,7 @@ class cntlm::params {
   $socks5proxy = undef
   $socks5user = undef
   $proxies = []
+  $noproxy = []
 
   # General Settings
   $my_class = ''
